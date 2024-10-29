@@ -121,11 +121,11 @@ public class config {
 
          
             StringBuilder headerLine = new StringBuilder();
-            headerLine.append("--------------------------------------------------------------------------------\n| ");
+            headerLine.append("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n| ");
             for (String header : columnHeaders) {
                 headerLine.append(String.format("%-20s | ", header)); // Adjust formatting as needed
             }
-            headerLine.append("\n--------------------------------------------------------------------------------");
+            headerLine.append("\n-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
             System.out.println(headerLine.toString());
 
@@ -138,10 +138,29 @@ public class config {
                 }
                 System.out.println(row.toString());
             }
-            System.out.println("--------------------------------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
         } catch (SQLException e) {
             System.out.println("Error retrieving records: " + e.getMessage());
         }
+     }
+     public double getSingleValues(String sql, Object... params){
+         double result = 0.0;
+         
+         try(Connection conn = this.connectDB();
+             PreparedStatement pst  = conn.prepareStatement(sql)){
+             
+             
+             for(int i = 0; i < params.length; i++){
+                 pst.setObject(i + 1, params[i]);
+             }
+             ResultSet rs = pst.executeQuery();
+             if(rs.next()){
+                 result  = rs.getDouble(1);
+             }
+         }catch(SQLException e ){
+             System.out.println("Erorr retrieving single values: "+e.getMessage());
+         }
+         return  result;
      }
 }
