@@ -28,6 +28,7 @@ public class IT2ACAMPOYDVS {
             System.out.println("    5. Exit the Application ");
             System.out.println("-----------------------------------------");
             System.out.println("");
+            System.out.println("");
 
             while (true) {
                 System.out.print("Enter choice: ");
