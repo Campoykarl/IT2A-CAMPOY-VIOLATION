@@ -69,7 +69,7 @@ public class IT2ACAMPOYDVS {
                         System.out.print("Enter Staff password: ");
                         String hrPassword = sc.next();
 
-                        final String STAFF_PASSWORD = "staff1234";
+                        final String STAFF_PASSWORD = "karlpogi";
 
                         if (hrPassword.equals(STAFF_PASSWORD)) {
                             Status1 sts = new Status1();
