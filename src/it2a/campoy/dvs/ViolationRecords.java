@@ -62,16 +62,17 @@ public class ViolationRecords {
     public void viewVRecords() {
         config con = new config();
 
-        String violationRecordsQuery = 
-            "SELECT vr.Driver_ID, vr.Violation_ID, vr.Date_Of_Violate, vr.License_Plate, vr.Payment, " +
-            "d.f_name AS Driver_Firstname, d.l_name AS Driver_Lastname, " +
-            "v.Violation_Name " +
-            "FROM ViolationRecords vr " +
-            "INNER JOIN DViolation d ON vr.Driver_ID = d.ID " +
-            "INNER JOIN Violations v ON vr.Violation_ID = v.Violations_ID";
+      String violationRecordsQuery = 
+    "SELECT vr.ViolationRecords_ID, vr.Driver_ID, vr.Violation_ID, vr.Date_Of_Violate, vr.License_Plate, vr.Payment, " +
+    "d.f_name AS Driver_Firstname, d.l_name AS Driver_Lastname, " +
+    "v.Violation_Name " +
+    "FROM ViolationRecords vr " +
+    "INNER JOIN DViolation d ON vr.Driver_ID = d.ID " +
+    "INNER JOIN Violations v ON vr.Violation_ID = v.Violations_ID";
 
-        String[] headers = {"Driver ID", "Violation ID", "Date of Violate", "License Plate", "Payment", "Driver Firstname", "Driver Lastname", "Violation Name"};
-        String[] columns = {"Driver_ID", "Violation_ID", "Date_Of_Violate", "License_Plate", "Payment", "Driver_Firstname", "Driver_Lastname", "Violation_Name"};
+
+        String[] headers = {"Violation Records ID","Driver ID", "Violation ID", "Date of Violate", "License Plate", "Payment", "Driver Firstname", "Driver Lastname", "Violation Name"};
+        String[] columns = {"ViolationRecords_ID","Driver_ID", "Violation_ID", "Date_Of_Violate", "License_Plate", "Payment", "Driver_Firstname", "Driver_Lastname", "Violation_Name"};
 
         con.viewViolations(violationRecordsQuery, headers, columns);
     }

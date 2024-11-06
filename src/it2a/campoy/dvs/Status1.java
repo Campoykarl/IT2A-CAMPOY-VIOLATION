@@ -29,59 +29,40 @@ public class Status1 {
           
           switch(choice){
               case 1:
-                  
-                 Driver dr = new Driver();
-                 dr.viewDriver();
-                 Violation vio  = new Violation();
-                 vio.viewViolations();
+                
                  ViolationRecords vr = new ViolationRecords();
-                 vr.viewViolationRecords();
+                 vr.viewVRecords();
                   
                  
-                 String sqlUPDATE = "UPDATE ViolationRecords SET Status = ? WHERE Driver_ID = ? AND Violation_ID = ? ";
+                 String sqlUPDATE = "UPDATE ViolationRecords SET Status = ? WHERE ViolationRecords_ID = ? ";
                   
                  int id3;
                 while (true) {
-                System.out.print("Enter Driver ID: ");
+                System.out.print("Enter Violation Records: ");
                 if (sc.hasNextInt()) {
                     id3 = sc.nextInt();
-                    if (con.getSingleValues("SELECT Driver_ID FROM ViolationRecords WHERE Driver_ID = ?", id3) != 0) {
+                    if (con.getSingleValues("SELECT ViolationRecords_ID FROM ViolationRecords WHERE ViolationRecords_ID = ?", id3) != 0) {
                         break;
                     } else {
-                        System.out.println("Selected Driver doesn't exist.");
+                        System.out.println("Selected Violation Records doesn't exist.");
                     }
                 } else {
-                    System.out.println("Invalid input. Please enter a valid numeric Driver ID.");
+                    System.out.println("Invalid input. Please enter a valid Violation Recordsr ID.");
                     sc.next(); 
                 }
             }
                   
-                    int id4;
-                while (true) {
-                System.out.print("Enter Violation ID: ");
-                if (sc.hasNextInt()) {
-                    id4 = sc.nextInt();
-                    sc.nextLine();
-                    if (con.getSingleValues("SELECT Violation_ID FROM ViolationRecords WHERE Violation_ID = ?", id4) != 0) {
-                        break;
-                    } else {
-                        System.out.println("Selected Violation doesn't exist.");
-                    }
-                } else {
-                    System.out.println("Invalid input. Please enter a valid numeric Violation ID.");
-                    sc.next(); 
-                }
-            }                 
+                    
                 System.out.print("Enter Status: ");
-                  String stats = sc.nextLine();
-                  con.updateViol(sqlUPDATE, stats, id3, id4);
+                  String stats = sc.next();
+                  con.updateViol(sqlUPDATE, stats, id3);
                  
                  
                   break;
               case 2:
                   
                   vr  = new ViolationRecords();
-                  vr.viewViolationRecords();
+                 vr.viewVRecords();
                   break;
               
               case 3: 
