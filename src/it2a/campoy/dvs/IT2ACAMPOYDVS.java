@@ -15,9 +15,8 @@ public class IT2ACAMPOYDVS {
             System.out.print("\033[H\033[2J");
             System.out.flush();
 
-            System.out.println("=========================================");
             System.out.println("|         VIOLATION MANAGEMENT          |");
-            System.out.println("=========================================");
+         
             System.out.println("");
             System.out.println("          Please select an option:       ");
             System.out.println("-----------------------------------------");

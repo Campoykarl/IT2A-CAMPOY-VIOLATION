@@ -37,7 +37,7 @@ public class ViolationRecords {
             System.out.print("Enter Violation ID: ");
             if (sc.hasNextInt()) {
                 ID2 = sc.nextInt();
-                if (con.getSingleValues("SELECT Violation_ID FROM ViolationRecords WHERE Violation_ID = ?", ID2) != 0) {
+                if (con.getSingleValues("SELECT Violations_ID FROM Violations WHERE Violations_ID = ?", ID2) != 0) {
                     break;
                 } else {
                     System.out.println("Selected Violation doesn't exist.");
