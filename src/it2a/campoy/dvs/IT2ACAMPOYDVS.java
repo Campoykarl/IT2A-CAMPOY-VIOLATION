@@ -23,8 +23,7 @@ public class IT2ACAMPOYDVS {
             System.out.println("    1. Driver");
             System.out.println("    2. Violation");
             System.out.println("    3. Violation Records");
-            System.out.println("    4. Staff Only");
-            System.out.println("    5. Exit the Application ");
+            System.out.println("    4. Exit the Application ");
             System.out.println("-----------------------------------------");
             System.out.println("");
             System.out.println("");
@@ -61,27 +60,6 @@ public class IT2ACAMPOYDVS {
                     break;
 
                 case 4:
-                    System.out.print("Are you a Staff? Yes or No: ");
-                    String res = sc.next();
-
-                    if (res.equalsIgnoreCase("yes")) {
-                        System.out.print("Enter Staff password: ");
-                        String hrPassword = sc.next();
-
-                        final String STAFF_PASSWORD = "karlpogi";
-
-                        if (hrPassword.equals(STAFF_PASSWORD)) {
-                            Status1 sts = new Status1();
-                            sts.Status();
-                        } else {
-                            System.out.println("Invalid Staff password. Access denied.");
-                        }
-                    } else {
-                        System.out.println("You do not have permission to access Staff-only features.");
-                    }
-                    break;
-
-                case 5:
                     System.out.println("Exiting the application...");
                     exit(0);
                     break;
