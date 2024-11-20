@@ -10,11 +10,10 @@ public class IT2ACAMPOYDVS {
         Scanner sc = new Scanner(System.in);
         int choice;
         String response;
-
+        boolean exit  = true;
         do {
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
-
+           
+            System.out.println("");
             System.out.println("|         VIOLATION MANAGEMENT          |");
          
             System.out.println("");
@@ -23,7 +22,7 @@ public class IT2ACAMPOYDVS {
             System.out.println("    1. Driver");
             System.out.println("    2. Violation");
             System.out.println("    3. Violation Records");
-            System.out.println("    4. Staff Only");
+            System.out.println("    4. Update Status of Records");
             System.out.println("    5. Exit the Application ");
             System.out.println("-----------------------------------------");
             System.out.println("");
@@ -61,35 +60,19 @@ public class IT2ACAMPOYDVS {
                     break;
 
                 case 4:
-                    System.out.print("Are you a Staff? Yes or No: ");
-                    String res = sc.next();
-
-                    if (res.equalsIgnoreCase("yes")) {
-                        System.out.print("Enter Staff password: ");
-                        String hrPassword = sc.next();
-
-                        final String STAFF_PASSWORD = "karlpogi";
-
-                        if (hrPassword.equals(STAFF_PASSWORD)) {
-                            Status1 sts = new Status1();
-                            sts.Status();
-                        } else {
-                            System.out.println("Invalid Staff password. Access denied.");
-                        }
-                    } else {
-                        System.out.println("You do not have permission to access Staff-only features.");
-                    }
+                     Status1 sts = new Status1();
+                     sts.Status();    
                     break;
 
                 case 5:
-                    System.out.println("Exiting the application...");
-                    exit(0);
+                    System.out.println("Are you sure you want  to exit? Yes or No: ");
+                    String res = sc.next();
+                    if(res.equalsIgnoreCase("yes")){
+                        exit = false;
+                    }
                     break;
             }
-
-            System.out.print("Do you want to continue to the main menu? Yes or No: ");
-            response = sc.next();
-        } while (response.equalsIgnoreCase("yes"));
+        } while (exit);
 
         System.out.println("Thank You!");
         sc.close(); 
